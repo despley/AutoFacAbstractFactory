@@ -12,10 +12,11 @@ namespace NormalDI
             //All of the extra layers are going to be named as letters in Alphabetical order 
             //It is assumed that a new copy of both class Module and class Screen are needed in this example, hence the use of new Module()
 
-            IList<ElementBase> widgets = ContainerFactory.GetRuntime().GetScreenElements();
-            foreach (ElementBase w in widgets)
+            IList<ElementBase> screenElements = ContainerFactory.GetRuntime().GetScreenElements();
+            foreach (ElementBase elementBase in screenElements)
             {
-                Console.WriteLine(w.Description);
+                Console.WriteLine("Element type: " + elementBase.GetType());
+                Console.WriteLine("Element description: " + elementBase.Description);
             }
             Console.ReadKey();
         }

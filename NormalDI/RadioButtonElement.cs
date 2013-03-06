@@ -19,7 +19,7 @@ namespace NormalDI
 
         public override string Description
         {
-            get { return _description + HeyRadioStuffNotElementStuff(); }
+            get { return _description; }
 
         }
     }

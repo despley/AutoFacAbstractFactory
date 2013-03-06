@@ -12,7 +12,19 @@ namespace NormalDI
         }
         public IList<ElementBase> GetScreenElements()
         {
-            //Ask ModuleFactory for a copy of Module
+            return InternalGetScreenElements();         
+        }
+
+        private void Debug(ModuleBase moduleBase1, ScreenBase screenBase1, ModuleBase moduleBase2, ScreenBase screenBase2)
+        {
+            Console.WriteLine("Module 1: " + moduleBase1.ModuleName);
+            Console.WriteLine("Screen 1: " + screenBase1.ScreenName);
+            Console.WriteLine("Module 2: " + moduleBase2.ModuleName);
+            Console.WriteLine("Screen 2: " + screenBase2.ScreenName);
+        }
+
+        private IList<ElementBase> InternalGetScreenElements()
+        {
             var moduleBase1 = _moduleFactory.CreateModule("Conveyancing");
             var screenBase1 = moduleBase1.CreateScreen("Customers Address");
             var moduleBase2 = _moduleFactory.CreateModule("Simple Debt");
@@ -20,22 +32,9 @@ namespace NormalDI
             IList<ElementBase> elements = new List<ElementBase>();
             elements.Add(screenBase1.CreateRadioElement("Radio button to choose if commerical property or not", Guid.NewGuid()));
             elements.Add(screenBase2.CreateTextElement("Describe why the monies are owed", Guid.NewGuid()));
-            Debug(moduleBase1,screenBase1,moduleBase2,screenBase2);
-            var r = (RadioButtonElement)screenBase1.CreateRadioElement("Special radio that is radio", Guid.NewGuid());
-            var ele = (ElementBase) r;
-            Console.WriteLine(ele.Id);
-            Console.WriteLine(r.HeyRadioStuffNotElementStuff());
-//            var strangeElement = screenBase1.CreateStrangeDatabaseDrivenElement("DATABASE DRIVEN: Created needing separate service than other elements", Guid.NewGuid());
-//            Console.WriteLine(strangeElement.Description);
+            Debug(moduleBase1, screenBase1, moduleBase2, screenBase2);
             return elements;
         }
 
-        private void Debug(ModuleBase moduleBase1, ScreenBase screenBase1, ModuleBase moduleBase2, ScreenBase screenBase2)
-        {
-            Console.WriteLine(moduleBase1.ModuleName);
-            Console.WriteLine(screenBase1.ScreenName);
-            Console.WriteLine(moduleBase2.ModuleName);
-            Console.WriteLine(screenBase2.ScreenName);
-        }
     }
 }

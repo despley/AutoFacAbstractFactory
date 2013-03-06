@@ -10,9 +10,9 @@ namespace NormalDI
             ScreenName = screenName;
         }
         [Obsolete]
-        public abstract ElementBase CreateElement(string name, Guid id);
-        public abstract ElementBase CreateRadioElement(string name, Guid id);
-        public abstract ElementBase CreateTextElement(string name, Guid id);
-        public abstract ElementBase CreateStrangeDatabaseDrivenElement(string name, Guid id);
+        public abstract ElementBase CreateElement(string description, Guid id);
+        public abstract ElementBase CreateRadioElement(string description, Guid id);
+        public abstract ElementBase CreateTextElement(string description, Guid id);
+        public abstract ElementBase CreateStrangeDatabaseDrivenElement(string description, Guid id);
     }
 }
