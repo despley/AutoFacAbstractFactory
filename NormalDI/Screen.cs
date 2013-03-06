@@ -4,31 +4,31 @@ namespace NormalDI
 {
     public class Screen : ScreenBase
     {
-        internal readonly ElementFactoryBase ElementFactory;
+        private readonly ElementFactoryBase _elementFactory;
         public Screen(ElementFactoryBase elementFactory, string screenName):base(screenName)
         {
-            ElementFactory = elementFactory;
+            _elementFactory = elementFactory;
         }
 
         [Obsolete]
         public override ElementBase CreateElement(string name, Guid id)
         {
-            return ElementFactory.CreateElement(name, id);
+            return _elementFactory.CreateElement(name, id);
         }
 
         public override ElementBase CreateRadioElement(string name, Guid id)
         {
-            return ElementFactory.CreateRadioElement(name, id);
+            return _elementFactory.CreateRadioElement(name, id);
         }
 
         public override ElementBase CreateTextElement(string name, Guid id)
         {
-            return ElementFactory.CreateTextElement(name, id);
+            return _elementFactory.CreateTextElement(name, id);
         }
 
         public override ElementBase CreateStrangeDatabaseDrivenElement(string name, Guid id)
         {
-            return ElementFactory.CreateStrangeDatabaseDrivenElement(name, id);
+            return _elementFactory.CreateStrangeDatabaseDrivenElement(name, id);
         }
     }
 }
