@@ -2,15 +2,15 @@
 {
     public class ScreenFactory : ScreenFactoryBase
     {
-        private readonly ElementFactoryBase _elementFactory;
+        protected readonly ElementFactoryBase ElementFactory;
         public ScreenFactory(ElementFactoryBase elementFactory)
         {
-            _elementFactory = elementFactory;
+            ElementFactory = elementFactory;
         }
 
         public override ScreenBase CreateScreen(string screenName)
         {
-            return new Screen(_elementFactory, screenName);
+            return new Screen(ElementFactory, screenName);
         }
     }
 }

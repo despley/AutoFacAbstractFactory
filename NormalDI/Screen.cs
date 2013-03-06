@@ -4,25 +4,31 @@ namespace NormalDI
 {
     public class Screen : ScreenBase
     {
-        private readonly ElementFactoryBase _elementFactory;
+        internal readonly ElementFactoryBase ElementFactory;
         public Screen(ElementFactoryBase elementFactory, string screenName):base(screenName)
         {
-            _elementFactory = elementFactory;
+            ElementFactory = elementFactory;
         }
 
+        [Obsolete]
         public override ElementBase CreateElement(string name, Guid id)
         {
-            return _elementFactory.CreateElement(name, id);
+            return ElementFactory.CreateElement(name, id);
         }
 
         public override ElementBase CreateRadioElement(string name, Guid id)
         {
-            return _elementFactory.CreateRadioElement(name, id);
+            return ElementFactory.CreateRadioElement(name, id);
         }
 
         public override ElementBase CreateTextElement(string name, Guid id)
         {
-            return _elementFactory.CreateTextElement(name, id);
+            return ElementFactory.CreateTextElement(name, id);
+        }
+
+        public override ElementBase CreateStrangeDatabaseDrivenElement(string name, Guid id)
+        {
+            throw new NotImplementedException("Only a strange screen can create a strange element");
         }
     }
 }

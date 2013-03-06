@@ -18,13 +18,15 @@ namespace NormalDI
             var moduleBase2 = _moduleFactory.CreateModule("Simple Debt");
             var screenBase2 = moduleBase2.CreateScreen("Amount owed and customer details");
             IList<ElementBase> elements = new List<ElementBase>();
-            elements.Add(screenBase1.CreateRadioElement("Radio button to choose if commerical property or not", new Guid()));
-            elements.Add(screenBase2.CreateTextElement("Describe why the monies are owed", new Guid()));
+            elements.Add(screenBase1.CreateRadioElement("Radio button to choose if commerical property or not", Guid.NewGuid()));
+            elements.Add(screenBase2.CreateTextElement("Describe why the monies are owed", Guid.NewGuid()));
             Debug(moduleBase1,screenBase1,moduleBase2,screenBase2);
-            RadioButton r = (RadioButton)screenBase1.CreateRadioElement("Special radio that is radio", new Guid());
-            ElementBase ele = (ElementBase) r;
+            var r = (RadioButtonElement)screenBase1.CreateRadioElement("Special radio that is radio", Guid.NewGuid());
+            var ele = (ElementBase) r;
             Console.WriteLine(ele.Id);
             Console.WriteLine(r.HeyRadioStuffNotElementStuff());
+            //var strangeElement = screenBase1.CreateStrangeDatabaseDrivenElement("DATABASE DRIVEN: Created needing separate service than other elements", Guid.NewGuid());
+            //Console.WriteLine(strangeElement.Description);
             return elements;
         }
 

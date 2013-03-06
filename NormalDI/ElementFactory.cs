@@ -4,8 +4,8 @@ namespace NormalDI
 {
     public class ElementFactory : ElementFactoryBase
     {
-        private readonly ElementRepository _elementRepository;
-        public ElementFactory(ElementRepository elementRepository)
+        private readonly ElementRepositoryBase _elementRepository;
+        public ElementFactory(ElementRepositoryBase elementRepository)
         {
             _elementRepository = elementRepository;
         }
@@ -16,12 +16,17 @@ namespace NormalDI
 
         public override ElementBase CreateRadioElement(string name, Guid id)
         {
-            return new RadioButton(name, id, _elementRepository);
+            return new RadioButtonElement(name, id, _elementRepository);
         }
 
         public override ElementBase CreateTextElement(string name, Guid id)
         {
-            return new TextBox(name, id, _elementRepository);
+            return new TextBoxElement(name, id, _elementRepository);
+        }
+
+        public override ElementBase CreateStrangeDatabaseDrivenElement(string name, Guid id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

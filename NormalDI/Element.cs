@@ -4,10 +4,18 @@ namespace NormalDI
 {
     public class Element : ElementBase
     {
-        public override string Description { get; set; }
-        public override Guid Id { get; set; }
-        public Element(string description, Guid id, ElementRepository elementRepository) : base(description, id, elementRepository)
+        private readonly ElementRepositoryBase _elementRepository;
+        private readonly Guid _id;
+        private readonly string _description;
+        public override string Description {
+            get { return _description; }
+        }
+        public override Guid Id { get { return _id; } }
+        public Element(string description, Guid id, ElementRepositoryBase elementRepository)
         {
+            _elementRepository = elementRepository;
+            _description = description;
+            _id = id;
         }
     }
 }
