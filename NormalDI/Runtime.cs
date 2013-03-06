@@ -5,31 +5,35 @@ namespace NormalDI
 {
     public class Runtime
     {
-        private readonly AFactoryBase _aFactory;
-        public Runtime(AFactoryBase aFactory)
+        private readonly ModuleFactoryBase _moduleFactory;
+        public Runtime(ModuleFactoryBase moduleFactory)
         {
-            _aFactory = aFactory;
+            _moduleFactory = moduleFactory;
         }
-        public IList<Widget> GetWidgets()
+        public IList<ElementBase> GetScreenElements()
         {
-            //Ask AFactory for a copy of A
-            var a1 = _aFactory.GetA("First Unqiue copy of A");
-            var b1 = a1.GetB("First Unqiue copy of B");
-            var a2 = _aFactory.GetA("Second Unique copy of A");
-            var b2 = a2.GetB("Second Unqiue copy of B");
-            IList<Widget> widgets = new List<Widget>();
-            widgets.Add(b1.CreateWidget("iPhone", new Guid()));
-            widgets.Add(b2.CreateWidget("Android", new Guid()));
-            Debug(a1,b1,a2,b2);
-            return widgets;
+            //Ask ModuleFactory for a copy of Module
+            var moduleBase1 = _moduleFactory.CreateModule("Conveyancing");
+            var screenBase1 = moduleBase1.CreateScreen("Customers Address");
+            var moduleBase2 = _moduleFactory.CreateModule("Simple Debt");
+            var screenBase2 = moduleBase2.CreateScreen("Amount owed and customer details");
+            IList<ElementBase> elements = new List<ElementBase>();
+            elements.Add(screenBase1.CreateRadioElement("Radio button to choose if commerical property or not", new Guid()));
+            elements.Add(screenBase2.CreateTextElement("Describe why the monies are owed", new Guid()));
+            Debug(moduleBase1,screenBase1,moduleBase2,screenBase2);
+            RadioButton r = (RadioButton)screenBase1.CreateRadioElement("Special radio that is radio", new Guid());
+            ElementBase ele = (ElementBase) r;
+            Console.WriteLine(ele.Id);
+            Console.WriteLine(r.HeyRadioStuffNotElementStuff());
+            return elements;
         }
 
-        private void Debug(ABase aBase1, BBase bBase1, ABase aBase2, BBase bBase2)
+        private void Debug(ModuleBase moduleBase1, ScreenBase screenBase1, ModuleBase moduleBase2, ScreenBase screenBase2)
         {
-            Console.WriteLine(aBase1.WhatYouWantFromA);
-            Console.WriteLine(bBase1.WhatYouWantFromB);
-            Console.WriteLine(aBase2.WhatYouWantFromA);
-            Console.WriteLine(bBase2.WhatYouWantFromB);
+            Console.WriteLine(moduleBase1.ModuleName);
+            Console.WriteLine(screenBase1.ScreenName);
+            Console.WriteLine(moduleBase2.ModuleName);
+            Console.WriteLine(screenBase2.ScreenName);
         }
     }
 }

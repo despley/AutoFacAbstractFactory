@@ -5,31 +5,31 @@ namespace DelegateFactoryDI
 {
     public class Runtime
     {
-        private readonly A.Factory _aFactory;
-        public Runtime(A.Factory aFactory)
+        private readonly Module.Factory _aFactory;
+        public Runtime(Module.Factory aFactory)
         {
             _aFactory = aFactory;
         }
-        public IList<Widget> GetWidgets()
+        public IList<Element> GetWidgets()
         {
-            //Ask AFactory for a copy of A
-            var a1 = _aFactory("First Unqiue copy of A");
-            var b1 = a1.GetB("First Unqiue copy of B");
-            var a2 = _aFactory("Second Unique copy of A");
-            var b2 = a2.GetB("Second Unqiue copy of B");
-            IList<Widget> widgets = new List<Widget>();
+            //Ask AFactory for a copy of Module
+            var a1 = _aFactory("First Unqiue copy of Module");
+            var b1 = a1.GetB("First Unqiue copy of Screen");
+            var a2 = _aFactory("Second Unique copy of Module");
+            var b2 = a2.GetB("Second Unqiue copy of Screen");
+            IList<Element> widgets = new List<Element>();
             widgets.Add(b1.CreateWidget("iPhone", new Guid()));
             widgets.Add(b2.CreateWidget("Android", new Guid()));
             Debug(a1,b1,a2,b2);
             return widgets;
         }
 
-        private void Debug(ABase aBase1, BBase bBase1, ABase aBase2, BBase bBase2)
+        private void Debug(ModuleBase moduleBase1, ScreenBase screenBase1, ModuleBase moduleBase2, ScreenBase screenBase2)
         {
-            Console.WriteLine(aBase1.WhatYouWantFromA);
-            Console.WriteLine(bBase1.WhatYouWantFromB);
-            Console.WriteLine(aBase2.WhatYouWantFromA);
-            Console.WriteLine(bBase2.WhatYouWantFromB);
+            Console.WriteLine(moduleBase1.WhatYouWantFromA);
+            Console.WriteLine(screenBase1.WhatYouWantFromB);
+            Console.WriteLine(moduleBase2.WhatYouWantFromA);
+            Console.WriteLine(screenBase2.WhatYouWantFromB);
         }
     }
 }

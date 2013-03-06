@@ -8,10 +8,10 @@ namespace NormalDI
         {
             ContainerBuilder builder = new ContainerBuilder();
             builder.RegisterType<Runtime>();
-            builder.RegisterType<AFactory>().As<AFactoryBase>();
-            builder.RegisterType<BFactory>().As<BFactoryBase>();
-            builder.RegisterType<WidgetFactory>().As<WidgetFactoryBase>();
-            builder.RegisterType<WidgetRepository>();
+            builder.RegisterType<ModuleFactory>().As<ModuleFactoryBase>();
+            builder.RegisterType<ScreenFactory>().As<ScreenFactoryBase>();
+            builder.RegisterType<ElementFactory>().As<ElementFactoryBase>();
+            builder.RegisterType<ElementRepository>();
             var container = builder.Build();
             return container.Resolve<Runtime>();
         }

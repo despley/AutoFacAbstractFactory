@@ -2,13 +2,13 @@
 
 namespace DelegateFactoryDI
 {
-    public abstract class BBase
+    public abstract class ScreenBase
     {
         public string WhatYouWantFromB;
-        protected BBase(string whatYouWantFromB)
+        protected ScreenBase(string whatYouWantFromB)
         {
             WhatYouWantFromB = whatYouWantFromB;
         }
-        public abstract Widget CreateWidget(string name, Guid id);
+        public abstract Element CreateWidget(string name, Guid id);
     }
 }

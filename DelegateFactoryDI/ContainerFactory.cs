@@ -8,10 +8,10 @@ namespace DelegateFactoryDI
         {
             ContainerBuilder builder = new ContainerBuilder();
             builder.RegisterType<Runtime>();
-            builder.RegisterType<A>();
-            builder.RegisterType<B>();
-            builder.RegisterType<Widget>();
-            builder.RegisterType<WidgetRepository>();
+            builder.RegisterType<Module>();
+            builder.RegisterType<Screen>();
+            builder.RegisterType<Element>();
+            builder.RegisterType<ElementRepository>();
             var container = builder.Build();
             return container.Resolve<Runtime>();
         }

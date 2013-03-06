@@ -47,16 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="A.cs" />
-    <Compile Include="ABase.cs" />
-    <Compile Include="B.cs" />
-    <Compile Include="BBase.cs" />
+    <Compile Include="Module.cs" />
+    <Compile Include="ModuleBase.cs" />
+    <Compile Include="Screen.cs" />
+    <Compile Include="ScreenBase.cs" />
     <Compile Include="ContainerFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runtime.cs" />
-    <Compile Include="Widget.cs" />
-    <Compile Include="WidgetRepository.cs" />
+    <Compile Include="Element.cs" />
+    <Compile Include="ElementRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

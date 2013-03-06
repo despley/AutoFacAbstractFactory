@@ -1,6 +1,6 @@
 ﻿namespace DelegateFactoryDI
 {
-    public class WidgetRepository
+    public class ElementRepository
     {
     }
 }
