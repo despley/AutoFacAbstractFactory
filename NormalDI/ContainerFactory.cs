@@ -12,7 +12,7 @@ namespace NormalDI
             builder.RegisterType<ScreenFactory>().As<ScreenFactoryBase>();
             builder.RegisterType<ElementFactory>().As<ElementFactoryBase>();
             builder.RegisterType<ElementRepository>().As<ElementRepositoryBase>();
-            builder.RegisterType<StrangeElementRespoitory>();
+            //builder.RegisterType<StrangeElementRespoitory>();
             var container = builder.Build();
             return container.Resolve<Runtime>();
         }

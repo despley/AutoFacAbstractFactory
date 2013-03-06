@@ -25,8 +25,8 @@ namespace NormalDI
             var ele = (ElementBase) r;
             Console.WriteLine(ele.Id);
             Console.WriteLine(r.HeyRadioStuffNotElementStuff());
-            //var strangeElement = screenBase1.CreateStrangeDatabaseDrivenElement("DATABASE DRIVEN: Created needing separate service than other elements", Guid.NewGuid());
-            //Console.WriteLine(strangeElement.Description);
+//            var strangeElement = screenBase1.CreateStrangeDatabaseDrivenElement("DATABASE DRIVEN: Created needing separate service than other elements", Guid.NewGuid());
+//            Console.WriteLine(strangeElement.Description);
             return elements;
         }
 

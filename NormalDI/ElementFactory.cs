@@ -5,9 +5,14 @@ namespace NormalDI
     public class ElementFactory : ElementFactoryBase
     {
         private readonly ElementRepositoryBase _elementRepository;
+        private readonly StrangeElementRespoitory _strangeElementRespoitory;
         public ElementFactory(ElementRepositoryBase elementRepository)
         {
             _elementRepository = elementRepository;
+        }
+        public ElementFactory(ElementRepositoryBase elementRepository, StrangeElementRespoitory strangeElementRespoitory): this(elementRepository)
+        {
+            _strangeElementRespoitory = strangeElementRespoitory;
         }
         public override ElementBase CreateElement(string name, Guid id)
         {
@@ -26,7 +31,7 @@ namespace NormalDI
 
         public override ElementBase CreateStrangeDatabaseDrivenElement(string name, Guid id)
         {
-            throw new NotImplementedException();
+            return new StrangeDatabaseDrivenElement(name, id, _strangeElementRespoitory);
         }
     }
 }

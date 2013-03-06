@@ -67,10 +67,7 @@
     <Compile Include="ElementRepository.cs" />
     <Compile Include="ElementRepositoryBase.cs" />
     <Compile Include="StrangeDatabasedrivenElement.cs" />
-    <Compile Include="StrangeElementFactory.cs" />
     <Compile Include="StrangeElementRespoitory.cs" />
-    <Compile Include="StrangeScreen.cs" />
-    <Compile Include="StrangeScreenFactory.cs" />
     <Compile Include="TextBoxElement.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -28,7 +28,7 @@ namespace NormalDI
 
         public override ElementBase CreateStrangeDatabaseDrivenElement(string name, Guid id)
         {
-            throw new NotImplementedException("Only a strange screen can create a strange element");
+            return ElementFactory.CreateStrangeDatabaseDrivenElement(name, id);
         }
     }
 }
